@@ -132,3 +132,6 @@ dist
 # Vscode settings
 .vscode/
 .vscode/settings.json
+
+# Others
+index-og.html

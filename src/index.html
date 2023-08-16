@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    /* Add custom CSS here */
+    .dark-mode {
+      background-color: #1a202c;
+      color: #ffffff;
+    }
+    .dark-mode-bg-gray-50 {
+      /* color: #1a202c; */
+      color: #ffffff;
+      background-color: #2d3748;
+    }
+    .round-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body class="font-sans bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <span class="text-xl font-bold text-indigo-600">Your Brand</span>
+          <a href="#" class="text-gray-500 hover:text-indigo-600">About</a>
+          <a href="#" class="text-gray-500 hover:text-indigo-600">Projects</a>
+          <a href="#" class="text-gray-500 hover:text-indigo-600">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Profile and Personal Info Section -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+        <img src="path-to-your-image.jpg" alt="Your Profile Image" class="w-32 h-32 rounded-full">
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-semibold ">Your Name</h3>
+          <p class="text-gray-600">Web Developer</p>
+          <p class="max-w-2xl  mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat, purus eget vestibulum accumsan, tortor sapien.</p>
+          <ul class="list-disc list-inside max-w-2xl  mt-2">
+            <li>Passionate about creating user-friendly web experiences</li>
+            <li>Constantly learning and improving</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+      <h2 class="text-3xl font-extrabold tracking-tight  sm:text-4xl">
+        <span class="block">Projects</span>
+        <span class="block text-indigo-600">Check out our work.</span>
+      </h2>
+      <!-- Add dynamic content here using JavaScript and API calls -->
+      <div class="lg:mt-0 lg:flex-shrink-0">
+        <div class="mt-12 inline-flex rounded-md shadow">
+          <a href="#" class="py-3 px-6 bg-indigo-600 border border-transparent rounded-md text-white hover:bg-indigo-700">
+            View Projects
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Section (for API images) -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Sample image cards (replace with API data) -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Project Image" class="w-full h-56 object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800">Project 1</h3>
+            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Project Image" class="w-full h-56 object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800">Project 2</h3>
+            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Project Image" class="w-full h-56 object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800">Project 3</h3>
+            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add more sections as needed -->
+
+  <!-- Dark Mode Button -->
+  <div class="fixed bottom-4 right-4">
+    <button id="darkModeToggle" class="px-3 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none round-button">
+      🌙
+    </button>
+  </div>
+  
+ <!-- Footer Section -->
+  <div class="bg-gray-50">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
+      <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        <span class="block">Contact</span>
+        <span class="block text-indigo-600">keep in touch.</span>
+      </h2>
+      <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48" style="fill:#000000;">
+          <!-- ... (SVG path for the first icon) -->
+          <img id="image" style="width:48px;height:48px;" data-size="48" class="img-responsive" src="https://cdn.icon-icons.com/icons2/1826/PNG/512/4202011emailgmaillogomailsocialsocialmedia-115677_115624.png" title="Icono Correo electrónico, gmail, logo, mail, sociales, medios de comunicación" alt="Icono correo electrónico, gmail, logo, mail, sociales, medios de comunicación">
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48" style="fill:#000000;">
+          <!-- ... (SVG path for the second icon) -->
+          <img id="image" style="width:48px;height:48px;" data-size="48" class="img-responsive" src="https://cdn.icon-icons.com/icons2/805/PNG/512/linkedin_icon-icons.com_65929.png" title="Icono Linkedin, red social" alt="Icono linkedin, red social">
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dark Mode toggle functionality
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const bgGray50 = document.querySelector('.bg-gray-50');
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      bgGray50.classList.toggle('dark-mode-bg-gray-50');
+    });
+  </script>
+</body>
+</html>
