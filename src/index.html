@@ -5,33 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landing Page</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
-
+  <script defer src="./assets/main.js"></script> <!-- defer tells the browser to load the script after the HTML is loaded -->
   <style>
     /* Add custom CSS here */
     .dark-mode {
       background-color: #1a202c;
       color: #ffffff;
     }
-    .dark-mode-bg-gray-50 {
-      /* color: #1a202c; */
-      color: #ffffff;
+    .dark-mode-alter {
       background-color: #2d3748;
+      color: #ffffff;
     }
+    .dark-mode-alter-text-gray-600 {
+      color: #9CA3AF;
+    }
+    .dark-mode-bg-gray-50 {
+      background-color: #2d3748;
+      color: #ffffff;
+    }
+    .dark-mode-bg-gray-50-text-gray-500 {
+      color: #ffffff;
+    }
+    
     .round-button {
       width: 40px;
       height: 40px;
       border-radius: 50%;
+    }
+    /* Additional styles for dark mode */
+    .dark-mode .text-indigo-600 {
+      color: #93c5fd; /* Adjusted color for dark mode */
+    }
+    .dark-mode .bg-indigo-600 {
+      background-color: #4f46e5; /* Adjusted color for dark mode */
     }
   </style>
 </head>
 <body class="font-sans bg-gray-100">
 
   <!-- Navbar -->
-  <nav class="bg-white shadow">
+  <nav class="bg-white shadow shadow dark-mode-alt">
     <div class="max-w-7xl mx-auto px-4 py-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-4">
-          <span class="text-xl font-bold text-indigo-600">Your Brand</span>
+          <span class="text-xl font-bold text-indigo-600">Jo Nakashima</span>
           <a href="#" class="text-gray-500 hover:text-indigo-600">About</a>
           <a href="#" class="text-gray-500 hover:text-indigo-600">Projects</a>
           <a href="#" class="text-gray-500 hover:text-indigo-600">Contact</a>
@@ -44,14 +61,15 @@
   <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-        <img src="path-to-your-image.jpg" alt="Your Profile Image" class="w-32 h-32 rounded-full">
+        <img src="https://yt3.googleusercontent.com/ytc/AOPolaT7jHIAA9FKhekyXzZ6WMwdUjJ_m2tCGYsZ8j_0XzM=s176-c-k-c0x00ffffff-no-rj" alt="Your Profile Image" class="w-32 h-32 rounded-full">
         <div class="text-center md:text-left">
-          <h3 class="text-2xl font-semibold ">Your Name</h3>
-          <p class="text-gray-600">Web Developer</p>
-          <p class="max-w-2xl  mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat, purus eget vestibulum accumsan, tortor sapien.</p>
+          <h3 class="text-2xl font-semibold ">@jonakashima</h3>
+          <p class="text-gray-600">Origami artist</p>
+          <p class="max-w-2xl  mt-2">Tutoriales de origami de Jo Nakashima
+            ¡Aprende a hacer increíbles modelos de origami, de simples a complejos!</p>
           <ul class="list-disc list-inside max-w-2xl  mt-2">
-            <li>Passionate about creating user-friendly web experiences</li>
-            <li>Constantly learning and improving</li>
+            <!-- <li>Passionate about creating user-friendly web experiences</li>
+            <li>Constantly learning and improving</li> -->
           </ul>
         </div>
       </div>
@@ -59,7 +77,7 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-16 bg-gray-50">
+  <section id="projects" class="py-16 bg-gray-50 dark-mode-alt">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
       <h2 class="text-3xl font-extrabold tracking-tight  sm:text-4xl">
         <span class="block">Projects</span>
@@ -68,7 +86,7 @@
       <!-- Add dynamic content here using JavaScript and API calls -->
       <div class="lg:mt-0 lg:flex-shrink-0">
         <div class="mt-12 inline-flex rounded-md shadow">
-          <a href="#" class="py-3 px-6 bg-indigo-600 border border-transparent rounded-md text-white hover:bg-indigo-700">
+          <a href="#" id="viewProjectsButton" class="py-3 px-6 bg-indigo-600 border border-transparent rounded-md text-white hover:bg-indigo-700">
             View Projects
           </a>
         </div>
@@ -79,29 +97,9 @@
   <!-- Image Section (for API images) -->
   <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="content">
         <!-- Sample image cards (replace with API data) -->
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="https://via.placeholder.com/300" alt="Project Image" class="w-full h-56 object-cover">
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-gray-800">Project 1</h3>
-            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </div>
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="https://via.placeholder.com/300" alt="Project Image" class="w-full h-56 object-cover">
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-gray-800">Project 2</h3>
-            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </div>
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="https://via.placeholder.com/300" alt="Project Image" class="w-full h-56 object-cover">
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-gray-800">Project 3</h3>
-            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -116,9 +114,9 @@
   </div>
   
  <!-- Footer Section -->
-  <div class="bg-gray-50">
+  <div class="bg-white dark-mode-alt">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
-      <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+      <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
         <span class="block">Contact</span>
         <span class="block text-indigo-600">keep in touch.</span>
       </h2>
@@ -135,16 +133,5 @@
     </div>
   </div>
 
-  <script>
-    // Dark Mode toggle functionality
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
-    const bgGray50 = document.querySelector('.bg-gray-50');
-
-    darkModeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      bgGray50.classList.toggle('dark-mode-bg-gray-50');
-    });
-  </script>
 </body>
 </html>
