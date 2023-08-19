@@ -69,7 +69,7 @@ const youtubeAPI = 'https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '',
+		'X-RapidAPI-Key': '8a153512c8msh9d098b16e55a2f6p18dfbejsn6509c1459a72',
 		// 'X-RapidAPI-Key': '55e94a5f44msh6b2a0cbe2069e4ap15dae1jsn6c203f094122',
 		'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
 	}
