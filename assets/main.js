@@ -1,31 +1,58 @@
 // Dark Mode toggle functionality
 const darkModeToggle = document.getElementById('darkModeToggle');
-const body = document.body;
-const bgGray50 = document.querySelectorAll('.dark-mode-alt');
-const textGray500 = document.querySelectorAll('.text-gray-500');
+const darkMode = document.querySelectorAll('.dark-mode');
+const darkModeAlt = document.querySelectorAll('.dark-mode-alt');
+let darkModeTarget;
+let titleTarget;
+
+// const body = document.body;
+const textIndigo600 = document.querySelectorAll('.text-indigo-600');
 const textGray600 = document.querySelectorAll('.text-gray-600');
 const slate900 = document.querySelectorAll('.text-slate-900');
-let darktest;
+
+const viewProjectsButton = document.getElementById('viewProjectsButton');
+
+// Dark mode button styles
+darkModeToggle.classList.add('w-10');
+darkModeToggle.classList.add('h-10');
+darkModeToggle.classList.add('rounded-full');
 
 darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    bgGray50.forEach((element) => {
-        element.classList.toggle('dark-mode-bg-gray-50');
+    // body.classList.toggle('dark-mode');
+
+    
+    darkMode.forEach((element) => {
+        element.classList.toggle('bg-gray-900');
+        element.classList.toggle('text-white');
     });
-    textGray500.forEach((element) => {
-        element.classList.toggle('dark-mode-bg-gray-50-text-gray-500');
+    darkModeAlt.forEach((element) => {
+        element.classList.toggle('bg-gray-800');
+        element.classList.toggle('text-white');
+    });
+    darkModeTarget.forEach((element) => {
+        // element.classList.toggle('bg-blue-400');
+        element.classList.toggle('bg-gray-900');
+        element.classList.toggle('text-white');
+    });
+    titleTarget.forEach((element) => {
+        element.classList.toggle('text-indigo-600');
+        element.classList.toggle('text-blue-400');
+    });
+
+    textIndigo600.forEach((element) => {
+        textIndigo600.forEach((element) => {
+            element.classList.toggle('text-indigo-600');
+            element.classList.toggle('text-blue-400');
+        });
     });
     textGray600.forEach((element) => {
-        element.classList.toggle('dark-mode-alter-text-gray-600');
+        element.classList.toggle('text-gray-600');
+        element.classList.toggle('text-gray-400');
     });
     slate900.forEach((element) => {
-        element.classList.toggle('dark-mode-slate-900');
-    });
-    darktest.forEach((element) => {
-        element.classList.toggle('dark-mode-bg-gray-50');
-    });
-    slate900.forEach((element) => {
-        element.classList.toggle('dark-mode-slate-900');
+        // element.classList.toggle('dark-mode-slate-900');
+        element.classList.toggle('hover:text-indigo-600');
+        element.classList.toggle('hover:text-blue-400');
     });
 });
 
@@ -34,13 +61,16 @@ darkModeToggle.addEventListener('click', () => {
 const content = null || document.getElementById('content'); // Get content div
 // Channel videos
 // const youtubeAPI = 'https://youtube-v31.p.rapidapi.com/search?channelId=UC3ICcukYYeSn26KlCRnhOhA&part=snippet%2Cid&order=date&maxResults=6';
-// Playlist videos
+// Playlist videos- main account
+// const youtubeAPI = 'https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=PL5jDTd07plNAQ7IZLz7RSMTYvJBrLDUEL&part=snippet&maxResults=6';
+// Playlist videos - alternate account
 const youtubeAPI = 'https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=PL5jDTd07plNAQ7IZLz7RSMTYvJBrLDUEL&part=snippet&maxResults=6';
 
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': '',
+		// 'X-RapidAPI-Key': '55e94a5f44msh6b2a0cbe2069e4ap15dae1jsn6c203f094122',
 		'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
 	}
 };
@@ -69,7 +99,7 @@ async function getVideos(youtubeAPI) {
 
         videos.items.slice(0, 6).forEach(video => {
             const videoDiv = document.createElement('div');
-            videoDiv.className = "bg-white dark-mode-alte shadow-lg rounded-lg overflow-hidden";
+            videoDiv.className = "bg-white dark-mode-target shadow-lg rounded-lg overflow-hidden";
             
             const thumbnailImg = document.createElement('img');
             thumbnailImg.src = video.snippet.thumbnails.high.url;
@@ -94,7 +124,8 @@ async function getVideos(youtubeAPI) {
 
             content.appendChild(videoDiv);
         });
-        darktest = document.querySelectorAll('.dark-mode-alte');
+        darkModeTarget = document.querySelectorAll('.dark-mode-target');
+        titleTarget = document.querySelectorAll('.text-indigo-600');
     } catch (error) {
         console.error(error);
         // Add sweet alert here later
@@ -104,11 +135,11 @@ async function getVideos(youtubeAPI) {
 document.getElementById('viewProjectsButton').addEventListener('click', function(event) {
     event.preventDefault();
     
-    // Obtener la posición vertical del elemento con ID "content"
+    // Obtaining the position of the element
     const contentSection = document.getElementById('sectionAPI');
     const contentSectionTop = contentSection.offsetTop;
     
-    // Realizar el desplazamiento suave a la posición del elemento
+    // Scrolling to the element
     window.scrollTo({
       top: contentSectionTop,
       behavior: 'smooth'
