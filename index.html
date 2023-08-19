@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <script defer src="./assets/main.js"></script> <!-- defer tells the browser to load the script after the HTML is loaded -->
+  <style>
+    /* Add custom CSS here */
+    .dark-mode {
+      background-color: #1a202c;
+      color: #ffffff;
+    }
+    .dark-mode-alter {
+      background-color: #2d3748;
+      color: #ffffff;
+    }
+    .dark-mode-alter-text-gray-600 {
+      color: #9CA3AF;
+    }
+    .dark-mode-bg-gray-50 {
+      background-color: #2d3748;
+      color: #ffffff;
+    }
+    .dark-mode-bg-gray-50-text-gray-500 {
+      color: #ffffff;
+    }
+    
+    .round-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    /* Additional styles for dark mode */
+    .dark-mode .text-indigo-600 {
+      color: #93c5fd; /* Adjusted color for dark mode */
+    }
+    .dark-mode .bg-indigo-600 {
+      background-color: #4f46e5; /* Adjusted color for dark mode */
+    }
+    .dark-mode .bg-indigo-600:hover {
+      background-color: #4338ca; /* Adjusted color for dark mode */
+    }
+    .dark-mode-slate-900:hover{
+      /* color: #9ca3af; */
+      color: #60a5fa; /* Adjusted color for dark mode */
+    }
+  </style>
+</head>
+<body class="font-sans bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow shadow dark-mode-alt">
+    <div class="max-w-7xl mx-auto px-4 py-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <span class="text-xl font-bold text-indigo-600">Jo Nakashima</span>
+          <a href="#" class="text-slate-900 hover:text-indigo-600">About</a>
+          <a href="#" class="text-slate-900 hover:text-indigo-600">Projects</a>
+          <a href="#" class="text-slate-900 hover:text-indigo-600">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Profile and Personal Info Section -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+        <img src="https://yt3.googleusercontent.com/ytc/AOPolaT7jHIAA9FKhekyXzZ6WMwdUjJ_m2tCGYsZ8j_0XzM=s176-c-k-c0x00ffffff-no-rj" alt="Your Profile Image" class="w-32 h-32 rounded-full">
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-semibold text-indigo-600">@jonakashima</h3>
+          <p class="text-gray-600">Origami artist</p>
+          <p class="max-w-2x2  mt-2">Tutoriales de origami de Jo Nakashima
+            ¡Aprende a hacer increíbles modelos de origami, de simples a complejos!</p>
+          <ul class="list-disc list-inside max-w-2xl  mt-2">
+            <!-- <li>Passionate about creating user-friendly web experiences</li>
+            <li>Constantly learning and improving</li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 bg-gray-50 dark-mode-alt">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+      <h2 class="text-3xl font-extrabold tracking-tight  sm:text-4xl">
+        <span class="block text-indigo-600">Projects</span>
+        <span class="block ">Check out our work.</span>
+      </h2>
+      <!-- Add dynamic content here using JavaScript and API calls -->
+      <div class="lg:mt-0 lg:flex-shrink-0">
+        <div class="mt-12 inline-flex rounded-md shadow">
+          <a href="#" id="viewProjectsButton" class="py-3 px-6 bg-indigo-600 border border-transparent rounded-md text-white hover:bg-indigo-700">
+            View Projects
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Section (for API images) -->
+  <section class="py-16" id="sectionAPI">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="content">
+        <!-- Sample image cards (replace with API data) -->
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Add more sections as needed -->
+
+  <!-- Dark Mode Button -->
+  <div class="fixed bottom-4 right-4">
+    <button id="darkModeToggle" class="px-3 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none round-button">
+      🌙 
+    </button>
+  </div>
+  
+ <!-- Footer Section -->
+  <div class="bg-white dark-mode-alt">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
+      <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+        <span class="block text-indigo-600">Contact</span>
+        <span class="block ">keep in touch.</span>
+      </h2>
+      <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48" style="fill:#000000;">
+          <!-- ... (SVG path for the first icon) -->
+          <img id="image" style="width:48px;height:48px;" data-size="48" class="img-responsive" src="https://cdn.icon-icons.com/icons2/1826/PNG/512/4202011emailgmaillogomailsocialsocialmedia-115677_115624.png" title="Icono Correo electrónico, gmail, logo, mail, sociales, medios de comunicación" alt="Icono correo electrónico, gmail, logo, mail, sociales, medios de comunicación">
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48" style="fill:#000000;">
+          <!-- ... (SVG path for the second icon) -->
+          <img id="image" style="width:48px;height:48px;" data-size="48" class="img-responsive" src="https://cdn.icon-icons.com/icons2/805/PNG/512/linkedin_icon-icons.com_65929.png" title="Icono Linkedin, red social" alt="Icono linkedin, red social">
+        </svg>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
