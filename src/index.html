@@ -6,52 +6,12 @@
   <title>Landing Page</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
   <script defer src="./assets/main.js"></script> <!-- defer tells the browser to load the script after the HTML is loaded -->
-  <style>
-    /* Add custom CSS here */
-    .dark-mode {
-      background-color: #1a202c;
-      color: #ffffff;
-    }
-    .dark-mode-alter {
-      background-color: #2d3748;
-      color: #ffffff;
-    }
-    .dark-mode-alter-text-gray-600 {
-      color: #9CA3AF;
-    }
-    .dark-mode-bg-gray-50 {
-      background-color: #2d3748;
-      color: #ffffff;
-    }
-    .dark-mode-bg-gray-50-text-gray-500 {
-      color: #ffffff;
-    }
-    
-    .round-button {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-    /* Additional styles for dark mode */
-    .dark-mode .text-indigo-600 {
-      color: #93c5fd; /* Adjusted color for dark mode */
-    }
-    .dark-mode .bg-indigo-600 {
-      background-color: #4f46e5; /* Adjusted color for dark mode */
-    }
-    .dark-mode .bg-indigo-600:hover {
-      background-color: #4338ca; /* Adjusted color for dark mode */
-    }
-    .dark-mode-slate-900:hover{
-      /* color: #9ca3af; */
-      color: #60a5fa; /* Adjusted color for dark mode */
-    }
-  </style>
+  
 </head>
 <body class="font-sans bg-gray-100">
 
   <!-- Navbar -->
-  <nav class="bg-white shadow shadow dark-mode-alt">
+  <nav class="bg-white shadow shadow dark-mode">
     <div class="max-w-7xl mx-auto px-4 py-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-4">
@@ -65,7 +25,7 @@
   </nav>
 
   <!-- Profile and Personal Info Section -->
-  <section class="py-16">
+  <section class="py-16 dark-mode-alt">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
         <img src="https://yt3.googleusercontent.com/ytc/AOPolaT7jHIAA9FKhekyXzZ6WMwdUjJ_m2tCGYsZ8j_0XzM=s176-c-k-c0x00ffffff-no-rj" alt="Your Profile Image" class="w-32 h-32 rounded-full">
@@ -84,25 +44,27 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-16 bg-gray-50 dark-mode-alt">
+  <section id="projects" class="py-16 bg-gray-50 dark-mode">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-      <h2 class="text-3xl font-extrabold tracking-tight  sm:text-4xl">
+      <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-center lg:text-left"> <!-- Center the text on mobile, align left on desktop -->
         <span class="block text-indigo-600">Projects</span>
-        <span class="block ">Check out our work.</span>
+        <span class="block">Check out our work.</span>
       </h2>
       <!-- Add dynamic content here using JavaScript and API calls -->
       <div class="lg:mt-0 lg:flex-shrink-0">
-        <div class="mt-12 inline-flex rounded-md shadow">
-          <a href="#" id="viewProjectsButton" class="py-3 px-6 bg-indigo-600 border border-transparent rounded-md text-white hover:bg-indigo-700">
-            View Projects
-          </a>
+        <div class="mt-4 lg:mt-0 text-center lg:text-right"> <!-- Center the button on mobile, align right on desktop -->
+          <div class="inline-flex rounded-md shadow">
+            <a href="#" id="viewProjectsButton" class="py-3 px-6 bg-indigo-600 border border-transparent rounded-md text-white hover:bg-indigo-700 text-lg font-bold"> <!-- Smaller button height and smaller text size -->
+              View Projects
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Image Section (for API images) -->
-  <section class="py-16" id="sectionAPI">
+  <section class="py-16 dark-mode-alt" id="sectionAPI">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="content">
         <!-- Sample image cards (replace with API data) -->
@@ -121,7 +83,7 @@
   </div>
   
  <!-- Footer Section -->
-  <div class="bg-white dark-mode-alt">
+  <div class="bg-white dark-mode">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
       <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
         <span class="block text-indigo-600">Contact</span>
