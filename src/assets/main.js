@@ -5,10 +5,11 @@ const bgGray50 = document.querySelectorAll('.dark-mode-alt');
 // const bgWhite = document.querySelector('.bg-white');
 const textGray500 = document.querySelectorAll('.text-gray-500');
 const textGray600 = document.querySelectorAll('.text-gray-600');
+const slate900 = document.querySelectorAll('.text-slate-900');
 let darktest;
 
 darkModeToggle.addEventListener('click', () => {
-  body.classList.toggle('dark-mode');
+    body.classList.toggle('dark-mode');
     bgGray50.forEach((element) => {
         element.classList.toggle('dark-mode-bg-gray-50');
     });
@@ -21,8 +22,9 @@ darkModeToggle.addEventListener('click', () => {
     darktest.forEach((element) => {
         element.classList.toggle('dark-mode-bg-gray-50');
     });
-    
-//   bgWhite.classList.toggle('dark-mode-bg-gray-50');
+    slate900.forEach((element) => {
+        element.classList.toggle('dark-mode-slate-900');
+    });
 });
 
 
@@ -36,7 +38,7 @@ const youtubeAPI = 'https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
+		'X-RapidAPI-Key': '',
 		'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
 	}
 };
@@ -101,7 +103,7 @@ document.getElementById('viewProjectsButton').addEventListener('click', function
     event.preventDefault();
     
     // Obtener la posición vertical del elemento con ID "content"
-    const contentSection = document.getElementById('content');
+    const contentSection = document.getElementById('sectionAPI');
     const contentSectionTop = contentSection.offsetTop;
     
     // Realizar el desplazamiento suave a la posición del elemento
