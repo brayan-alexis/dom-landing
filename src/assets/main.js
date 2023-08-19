@@ -2,7 +2,6 @@
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
 const bgGray50 = document.querySelectorAll('.dark-mode-alt');
-// const bgWhite = document.querySelector('.bg-white');
 const textGray500 = document.querySelectorAll('.text-gray-500');
 const textGray600 = document.querySelectorAll('.text-gray-600');
 const slate900 = document.querySelectorAll('.text-slate-900');
@@ -18,6 +17,9 @@ darkModeToggle.addEventListener('click', () => {
     });
     textGray600.forEach((element) => {
         element.classList.toggle('dark-mode-alter-text-gray-600');
+    });
+    slate900.forEach((element) => {
+        element.classList.toggle('dark-mode-slate-900');
     });
     darktest.forEach((element) => {
         element.classList.toggle('dark-mode-bg-gray-50');
