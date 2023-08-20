@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landing Page</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
-  <script type="module" src="./assets/main.js"></script>
-  <!-- SweetAlert2 -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script defer type="module" src="./assets/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 -->
 </head>
 <body class="font-sans bg-gray-100">
 
@@ -17,16 +16,16 @@
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-4">
           <span class="text-xl font-bold text-indigo-600">Jo Nakashima</span>
-          <a href="#" class="text-slate-900 hover:text-indigo-600">About</a>
-          <a href="#" class="text-slate-900 hover:text-indigo-600">Projects</a>
-          <a href="#" class="text-slate-900 hover:text-indigo-600">Contact</a>
+          <a href="#" id="about-scroll" class="text-slate-900 hover:text-indigo-600">About</a>
+          <a href="#" id="projects-scroll" class="text-slate-900 hover:text-indigo-600">Projects</a>
+          <a href="#" id="contacts-scroll" class="text-slate-900 hover:text-indigo-600">Contact</a>
         </div>
       </div>
     </div>
   </nav>
 
   <!-- Profile and Personal Info Section -->
-  <section class="py-16 dark-mode-alt">
+  <section class="py-16 dark-mode-alt" id="about-section">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
         <img src="https://yt3.googleusercontent.com/ytc/AOPolaT7jHIAA9FKhekyXzZ6WMwdUjJ_m2tCGYsZ8j_0XzM=s176-c-k-c0x00ffffff-no-rj" alt="Your Profile Image" class="w-32 h-32 rounded-full">
@@ -78,13 +77,13 @@
 
   <!-- Dark Mode Button -->
   <div class="fixed bottom-4 right-4">
-    <button id="darkModeToggle" class="px-3 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none round-button">
+    <button id="darkModeToggle" class="px-3 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none round-button w-10 h-10 rounded-full">
       🌙 
     </button>
   </div>
   
  <!-- Footer Section -->
-  <div class="bg-white dark-mode">
+  <div class="bg-white dark-mode" id="contact-section">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
       <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
         <span class="block text-indigo-600">Contact</span>
@@ -102,13 +101,6 @@
       </div>
     </div>
   </div>
-  <style>
-    /* Ajuste de modal en dispositivos móviles */
-    @screen md {
-        .h-mobile-modal {
-            height: 70vh; /* Ajusta este valor según sea necesario */
-        }
-    }
-  </style>
+
 </body>
 </html>
