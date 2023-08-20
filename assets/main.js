@@ -14,53 +14,6 @@ const textIndigo600 = document.querySelectorAll('.text-indigo-600');
 const textGray600 = document.querySelectorAll('.text-gray-600');
 const slate900 = document.querySelectorAll('.text-slate-900');
 
-// Obtaining the position of the Button to scroll to section API
-const viewProjectsButton = document.getElementById('viewProjectsButton');
-
-// Dark mode button styles
-darkModeToggle.classList.add('w-10');
-darkModeToggle.classList.add('h-10');
-darkModeToggle.classList.add('rounded-full');
-
-// Dark mode toggle functionality
-darkModeToggle.addEventListener('click', () => {
-    // body.classList.toggle('dark-mode');
-    
-    darkMode.forEach((element) => {
-        element.classList.toggle('bg-gray-900');
-        element.classList.toggle('text-white');
-    });
-    darkModeAlt.forEach((element) => {
-        element.classList.toggle('bg-gray-800');
-        element.classList.toggle('text-white');
-    });
-    darkModeTarget.forEach((element) => {
-        // element.classList.toggle('bg-blue-400');
-        element.classList.toggle('bg-gray-900');
-        element.classList.toggle('text-white');
-    });
-    titleTarget.forEach((element) => {
-        element.classList.toggle('text-indigo-600');
-        element.classList.toggle('text-blue-400');
-    });
-
-    textIndigo600.forEach((element) => {
-        textIndigo600.forEach((element) => {
-            element.classList.toggle('text-indigo-600');
-            element.classList.toggle('text-blue-400');
-        });
-    });
-    textGray600.forEach((element) => {
-        element.classList.toggle('text-gray-600');
-        element.classList.toggle('text-gray-400');
-    });
-    slate900.forEach((element) => {
-        // element.classList.toggle('dark-mode-slate-900');
-        element.classList.toggle('hover:text-indigo-600');
-        element.classList.toggle('hover:text-blue-400');
-    });
-});
-
 // Fetch options for the API call to Youtube
 const options = {
 	method: 'GET',
@@ -159,12 +112,93 @@ const content = null || document.getElementById('content'); // Get content div
     }
 })();
 
-// Scroll to section
+// Dark mode toggle functionality
+darkModeToggle.addEventListener('click', () => {
+    // body.classList.toggle('dark-mode');
+    
+    darkMode.forEach((element) => {
+        element.classList.toggle('bg-gray-900');
+        element.classList.toggle('text-white');
+    });
+    darkModeAlt.forEach((element) => {
+        element.classList.toggle('bg-gray-800');
+        element.classList.toggle('text-white');
+    });
+    darkModeTarget.forEach((element) => {
+        // element.classList.toggle('bg-blue-400');
+        element.classList.toggle('bg-gray-900');
+        element.classList.toggle('text-white');
+    });
+    titleTarget.forEach((element) => {
+        element.classList.toggle('text-indigo-600');
+        element.classList.toggle('text-blue-400');
+    });
+
+    textIndigo600.forEach((element) => {
+        textIndigo600.forEach((element) => {
+            element.classList.toggle('text-indigo-600');
+            element.classList.toggle('text-blue-400');
+        });
+    });
+    textGray600.forEach((element) => {
+        element.classList.toggle('text-gray-600');
+        element.classList.toggle('text-gray-400');
+    });
+    slate900.forEach((element) => {
+        // element.classList.toggle('dark-mode-slate-900');
+        element.classList.toggle('hover:text-indigo-600');
+        element.classList.toggle('hover:text-blue-400');
+    });
+});
+
+// Scroll to projects section
 document.getElementById('viewProjectsButton').addEventListener('click', function(event) {
     event.preventDefault();
     
     // Obtaining the position of the element
     const contentSection = document.getElementById('sectionAPI');
+    const contentSectionTop = contentSection.offsetTop;
+    
+    // Scrolling to the element
+    window.scrollTo({
+      top: contentSectionTop,
+      behavior: 'smooth'
+    });
+});
+// Scroll to about section
+document.getElementById('about-scroll').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Obtaining the position of the element
+    const contentSection = document.getElementById('about-section');
+    const contentSectionTop = contentSection.offsetTop;
+    
+    // Scrolling to the element
+    window.scrollTo({
+        top: contentSectionTop,
+        behavior: 'smooth'
+    });
+});
+// Scroll to projects section
+document.getElementById('projects-scroll').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Obtaining the position of the element
+    const contentSection = document.getElementById('sectionAPI');
+    const contentSectionTop = contentSection.offsetTop;
+
+    // Scrolling to the element
+    window.scrollTo({
+        top: contentSectionTop,
+        behavior: 'smooth'
+    });
+});
+// Scroll to contact section
+document.getElementById('contacts-scroll').addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    // Obtaining the position of the element
+    const contentSection = document.getElementById('contact-section');
     const contentSectionTop = contentSection.offsetTop;
     
     // Scrolling to the element
