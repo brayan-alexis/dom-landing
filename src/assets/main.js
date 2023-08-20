@@ -1,10 +1,14 @@
+// Channel videos
+// const youtubeAPI = 'https://youtube-v31.p.rapidapi.com/search?channelId=UC3ICcukYYeSn26KlCRnhOhA&part=snippet%2Cid&order=date&maxResults=6';
+// Playlist videos
+const youtubeAPI = 'https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=PL5jDTd07plNAQ7IZLz7RSMTYvJBrLDUEL&part=snippet&maxResults=6';
+
 // Dark Mode toggle functionality
 const darkModeToggle = document.getElementById('darkModeToggle');
 const darkMode = document.querySelectorAll('.dark-mode');
 const darkModeAlt = document.querySelectorAll('.dark-mode-alt');
 let darkModeTarget;
 let titleTarget;
-
 // const body = document.body;
 const textIndigo600 = document.querySelectorAll('.text-indigo-600');
 const textGray600 = document.querySelectorAll('.text-gray-600');
@@ -17,9 +21,9 @@ darkModeToggle.classList.add('w-10');
 darkModeToggle.classList.add('h-10');
 darkModeToggle.classList.add('rounded-full');
 
+// Dark mode toggle functionality
 darkModeToggle.addEventListener('click', () => {
     // body.classList.toggle('dark-mode');
-
     
     darkMode.forEach((element) => {
         element.classList.toggle('bg-gray-900');
@@ -56,20 +60,11 @@ darkModeToggle.addEventListener('click', () => {
     });
 });
 
-
-
-const content = null || document.getElementById('content'); // Get content div
-// Channel videos
-// const youtubeAPI = 'https://youtube-v31.p.rapidapi.com/search?channelId=UC3ICcukYYeSn26KlCRnhOhA&part=snippet%2Cid&order=date&maxResults=6';
-// Playlist videos- main account
-// const youtubeAPI = 'https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=PL5jDTd07plNAQ7IZLz7RSMTYvJBrLDUEL&part=snippet&maxResults=6';
-// Playlist videos - alternate account
-const youtubeAPI = 'https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=PL5jDTd07plNAQ7IZLz7RSMTYvJBrLDUEL&part=snippet&maxResults=6';
-
+// Fetch options for the API call to Youtube
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '',
+		'X-RapidAPI-Key': '8a153512c8msh9d098b16e55a2f6p18dfbejsn6509c1459a72',
 		// 'X-RapidAPI-Key': '55e94a5f44msh6b2a0cbe2069e4ap15dae1jsn6c203f094122',
 		'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
 	}
@@ -86,7 +81,8 @@ async function getVideos(youtubeAPI) {
     }
 }
 
-// Auto call function
+const content = null || document.getElementById('content'); // Get content div
+// Auto call function to get videos and display them on the page
 (async () => {
     try{
         const videos = await getVideos(youtubeAPI);
@@ -100,6 +96,30 @@ async function getVideos(youtubeAPI) {
         videos.items.slice(0, 6).forEach(video => {
             const videoDiv = document.createElement('div');
             videoDiv.className = "bg-white dark-mode-target shadow-lg rounded-lg overflow-hidden";
+
+            // Reproducir video en la misma página en su propio div (no en una nueva pestaña)
+            videoDiv.addEventListener('click', () => {
+                let darkModeModalCheck = false;
+                let darkModeModalColor = '#000000';
+                if (videoDiv.classList.contains('bg-gray-900')) {
+                    darkModeModalCheck = true;
+                    darkModeModalColor = '#FFFFFF';
+                }
+
+                // Sweet Alert 2
+                Swal.fire({
+                    title: video.snippet.title,
+                    width: '64em', // 1024px
+                    color: darkModeModalColor,
+                    background: darkModeModalCheck ? '#2d3748' : '#fff', // #111827
+                    html: `<iframe width="100%" height="576" src="https://www.youtube.com/embed/${video.snippet.resourceId.videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                    focusConfirm: false,
+                    confirmButtonText: 'Ok'
+                });
+            });
+            
             
             const thumbnailImg = document.createElement('img');
             thumbnailImg.src = video.snippet.thumbnails.high.url;
@@ -110,11 +130,11 @@ async function getVideos(youtubeAPI) {
             videoInfoDiv.className = "p-4";
 
             const videoTitle = document.createElement('h3');
-            videoTitle.className = "text-lg font-semibold text-indigo-600"; // colo is #374151 text-gray-800
+            videoTitle.className = "text-lg font-semibold text-indigo-600";
             videoTitle.textContent = video.snippet.title;
 
             const videoDescription = document.createElement('p');
-            videoDescription.className = "mt-2 "; // color is #6B7280 text-gray-600
+            videoDescription.className = "mt-2 ";
             videoDescription.textContent = video.snippet.description.substring(0, 80) + "...";
             videoInfoDiv.appendChild(videoTitle);
             videoInfoDiv.appendChild(videoDescription);
@@ -127,11 +147,18 @@ async function getVideos(youtubeAPI) {
         darkModeTarget = document.querySelectorAll('.dark-mode-target');
         titleTarget = document.querySelectorAll('.text-indigo-600');
     } catch (error) {
-        console.error(error);
-        // Add sweet alert here later
+        //console.error(error);
+
+        Swal.fire({
+            title: 'Error: Not found videos',
+            text: error,
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
     }
 })();
 
+// Scroll to section
 document.getElementById('viewProjectsButton').addEventListener('click', function(event) {
     event.preventDefault();
     
@@ -144,4 +171,4 @@ document.getElementById('viewProjectsButton').addEventListener('click', function
       top: contentSectionTop,
       behavior: 'smooth'
     });
-  });
+});
