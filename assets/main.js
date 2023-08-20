@@ -14,6 +14,7 @@ const textIndigo600 = document.querySelectorAll('.text-indigo-600');
 const textGray600 = document.querySelectorAll('.text-gray-600');
 const slate900 = document.querySelectorAll('.text-slate-900');
 
+// Obtaining the position of the Button to scroll to section API
 const viewProjectsButton = document.getElementById('viewProjectsButton');
 
 // Dark mode button styles
@@ -112,7 +113,7 @@ const content = null || document.getElementById('content'); // Get content div
                     width: '64em', // 1024px
                     color: darkModeModalColor,
                     background: darkModeModalCheck ? '#2d3748' : '#fff', // #111827
-                    html: `<iframe width="100%" height="576" src="https://www.youtube.com/embed/${video.snippet.resourceId.videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+                    html: `<iframe width="100%" height="480" src="https://www.youtube.com/embed/${video.snippet.resourceId.videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
                     showCloseButton: true,
                     showConfirmButton: false,
                     focusConfirm: false,
